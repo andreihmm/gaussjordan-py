@@ -1,6 +1,5 @@
 # gauss_jordan.py
 
-
 def print_matrix(M,decimals = 3):
     for row in M:
         print([round(x, decimals)+0 for x in row])
@@ -11,7 +10,6 @@ def zeros_matrix(rows, cols):
         M.append([])
         while len(M[-1]) < cols:
             M[-1].append(0.0)
-
     return M
 
 def coef_matrix(augMat):
@@ -36,7 +34,7 @@ def determinant(AM):
                     AM[fd], AM[j] = AM[j], AM[fd]
                     break
                 else:
-                    raise ValueError("Matriz singular hell nawww")
+                    raise ValueError("Matriz singular : (")
 
         for i in range(fd + 1, n):
             crScaler = AM[i][fd] / AM[fd][fd]
@@ -53,7 +51,7 @@ def verifica_nao_singularidade(A):
     if det != 0:
         return True
     else:
-        raise ArithmeticError("Matriz singular hell naww")
+        raise ArithmeticError("Matriz singular : (")
 
 def GaussJordanMethod(augMat):
     #Normalizando cada linha...
@@ -68,7 +66,7 @@ def GaussJordanMethod(augMat):
             for j in range(i + n, n):
                 augMat[i], augMat[j] = augMat[j], augMat[i]
                 break
-            raise ValueError("NAAAAAAAAAAAOOOOO")
+            raise ValueError("Não deu certo")
 
         if augMat[i][i] != 1:
             divisor = augMat[i][i]
@@ -88,13 +86,21 @@ def GaussJordanMethod(augMat):
        
     print_matrix(augMat)
 
+class GaussJordanClass:
+    def __init__(self, augMat):
+        self.augMat = augMat
 
+    def resolverSL(self):
+        mc = coef_matrix(self.augMat)
+        if verifica_nao_singularidade(mc):
+            print("Tudo certo!")
+            print_matrix(self.augMat)
+        else:
+            print("Não foi possível aplicar o método de Gauss Jordan...")
 
         
-matrix = [[2.0,2.0,-3.0,4.0],[1.0,3.0,1.0,11.0],[2.0,5,-4.0,13.0]]
+matrixPossivel = [[2.0,2.0,-3.0,4.0],[1.0,3.0,1.0,11.0],[2.0,5,-4.0,13.0]]
+matrixImpossivel = [[1.0,1.0,1.0,1.0],[1.0,-1.0,1.0,2.0],[2.0,2.0,2.0,5.0]]
 
-mc = coef_matrix(matrix)
-print_matrix(mc)
-result = verifica_nao_singularidade(mc)
-print(result)
-GaussJordanMethod(matrix)
+GJC = GaussJordanClass(matrixPossivel)
+GJC.resolverSL()
