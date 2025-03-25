@@ -94,63 +94,105 @@ class GaussJordanClass:
         else:
             print("Não foi possível aplicar o método de Gauss Jordan...")
 
-# Sistema a)
-a = [
-    [2.0, 3.0, 5.0],  # 2x + 3y = 5
-    [4.0, -1.0, 7.0]  # 4x - y = 7
+# # Sistema a)
+# a = [
+#     [2.0, 3.0, 5.0],  # 2x + 3y = 5
+#     [4.0, -1.0, 7.0]  # 4x - y = 7
+# ]
+
+# # Sistema b)
+# b = [
+#     [2, 3, 1, 0],   # 2x + 3y + z = 0
+#     [1, -2, -1, 1], # x - 2y - z = 1
+#     [1, 4, 1, 2]    # x + 4y + z = 2
+# ]
+
+# # Sistema c)
+# c = [
+#     [2, 2, -3, 4],  # 2x + 2y - 3z = 4
+#     [1, 3, 1, 11],  # x + 3y + z = 11
+#     [2, 5, -4, 13]  # 2x + 5y - 4z = 13
+# ]
+
+# # Sistema d)
+# d = [
+#     [1, 1, 1, 1],   # x + y + z = 1
+#     [1, -1, 1, 2],  # x - y + z = 2
+#     [2, 2, 2, 5]    # 2x + 2y + 2z = 5
+# ]
+
+# # Sistema e)
+# e = [
+#     [1, 1, 1, 1],   # x + y + z = 1
+#     [1, -1, 1, 2],  # x - y + z = 2
+#     [2, 0, 2, 3]    # 2x + 2z = 3
+# ]
+
+# # Sistema f)
+# f = [
+#     [2, 1, -2, 10],  # 2x + y - 2z = 10
+#     [3, 2, 2, 1],    # 3x + 2y + 2z = 1
+#     [5, 4, 3, 4]     # 5x + 4y + 3z = 4
+# ]
+
+# GJCa = GaussJordanClass(a)
+# GJCb = GaussJordanClass(b)
+# GJCc = GaussJordanClass(c)
+# GJCd = GaussJordanClass(d)
+# GJCe = GaussJordanClass(e)
+# GJCf = GaussJordanClass(f)
+# print("BATERIA DE TESTES!")
+# print("a)")
+# GJCa.resolverSL()
+# print("b)")
+# GJCb.resolverSL()
+# print("c)")
+# GJCc.resolverSL()
+# print("d)")
+# GJCd.resolverSL()
+# print("e)")
+# GJCe.resolverSL()
+# print("f)")
+# GJCf.resolverSL()
+
+
+
+
+
+# USO DE SISTEMAS LINEARES PARA BALANCEAR EQUAÇÕES QUÍMICAS
+# EXEMPLO DE EQUAÇÃO QUÍMICA DESBALANCEADA:
+
+
+# KClO3(s)−→KCl(s)+O2(g)
+
+# Primeiro, consideraremos os moles de cada composto químico como coeficientes!
+
+# a * H2 + b * O2 = c * H2O
+
+# Portanto, o número de átomos de cada elemento no composto será:
+# variável do composto * nº de átomos do elemento
+
+# Ex: B2S3 vai possuir (w * 2) moles de Boro e (w * 3) moles de enxofre
+
+# Agora vamos fazer uma equação para cada um dos quatro elementos:
+
+# K: a - b = 0
+# Cl: a - b = 0
+# O: 3*a - c = 0
+
+# Passando para a forma de um sistema linear,
+
+# 7*w - y = 0
+# 6*w - 2*z = 0
+# 2*w + 2*x - 2*y - z = 0
+
+# Portanto, a matriz aumentada ficaria:
+
+matrizQuim = [
+    [1, -1, 0, 0],
+    [1, -1, 0, 0],
+    [3, 0, -1, 0]
 ]
 
-# Sistema b)
-b = [
-    [2, 3, 1, 0],   # 2x + 3y + z = 0
-    [1, -2, -1, 1], # x - 2y - z = 1
-    [1, 4, 1, 2]    # x + 4y + z = 2
-]
-
-# Sistema c)
-c = [
-    [2, 2, -3, 4],  # 2x + 2y - 3z = 4
-    [1, 3, 1, 11],  # x + 3y + z = 11
-    [2, 5, -4, 13]  # 2x + 5y - 4z = 13
-]
-
-# Sistema d)
-d = [
-    [1, 1, 1, 1],   # x + y + z = 1
-    [1, -1, 1, 2],  # x - y + z = 2
-    [2, 2, 2, 5]    # 2x + 2y + 2z = 5
-]
-
-# Sistema e)
-e = [
-    [1, 1, 1, 1],   # x + y + z = 1
-    [1, -1, 1, 2],  # x - y + z = 2
-    [2, 0, 2, 3]    # 2x + 2z = 3
-]
-
-# Sistema f)
-f = [
-    [2, 1, -2, 10],  # 2x + y - 2z = 10
-    [3, 2, 2, 1],    # 3x + 2y + 2z = 1
-    [5, 4, 3, 4]     # 5x + 4y + 3z = 4
-]
-
-GJCa = GaussJordanClass(a)
-GJCb = GaussJordanClass(b)
-GJCc = GaussJordanClass(c)
-GJCd = GaussJordanClass(d)
-GJCe = GaussJordanClass(e)
-GJCf = GaussJordanClass(f)
-print("BATERIA DE TESTES!")
-print("a)")
-GJCa.resolverSL()
-print("b)")
-GJCb.resolverSL()
-print("c)")
-GJCc.resolverSL()
-print("d)")
-GJCd.resolverSL()
-print("e)")
-GJCe.resolverSL()
-print("f)")
-GJCf.resolverSL()
+GJCQuim = GaussJordanClass(matrizQuim)
+GJCQuim.resolverSL()
